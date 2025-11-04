@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Dashboard - Military Gold</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <link rel="stylesheet" href="styles.css">  
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-content">
+                    <div class="user-section">
+                        <div class="user-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg')"></div>
+                        <div class="user-name">Alex Johnson</div>
+                        <div class="user-email">alex.johnson@email.com</div>
+                    </div>
+                    
+                    <nav>
+                        <ul class="nav-menu">
+                            <li class="nav-item"><a href="#" class="nav-link active" data-section="dashboard">Dashboard</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-section="flights">Flights</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-section="wallet">Wallet</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-section="reports">Reports</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-section="statistics">Statistics</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-section="settings">Settings</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <div class="active-users">
+                        <h4>ACTIVE USERS</h4>
+                        <div class="users-list">
+                            <div class="user-circle" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg')"></div>
+                            <div class="user-circle" style="background-image: url('https://randomuser.me/api/portraits/men/56.jpg')"></div>
+                            <div class="user-circle" style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg')"></div>
+                            <div class="user-circle more-users">+70</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Dashboard Content -->
+                <div id="dashboard-content" class="content-wrapper active">
+                    <div class="stats-header">
+                        <div>
+                            <h1 class="stats-title">Overview Last Month</h1>
+                            <p class="stats-period">November 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-icon"><i class="fas fa-plane"></i></div>
+                                <div class="stat-title">Boeing 787</div>
+                            </div>
+                            <div class="stat-value">$5,548</div>
+                            <div class="stat-subtitle">Revenue</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-icon"><i class="fas fa-plane-departure"></i></div>
+                                <div class="stat-title">Airbus 811</div>
+                            </div>
+                            <div class="stat-value">$6,210</div>
+                            <div class="stat-subtitle">Bookings</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                                <div class="stat-title">Total Flights</div>
+                            </div>
+                            <div class="stat-value">850</div>
+                            <div class="stat-subtitle">This Month</div>
+                        </div>
+                    </div>
+
+                    <div class="content-sections">
+                        <!-- Last Trips -->
+                        <div class="section-panel">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Last Trips</h3>
+                                <div class="panel-action">More</div>
+                            </div>
+                            <div class="trip-item" style="display: flex; align-items: center; gap: 15px; padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                                <div class="trip-avatar" style="width: 40px; height: 40px; border-radius: 50%; background-image: url('https://randomuser.me/api/portraits/men/12.jpg'); background-size: cover; background-position: center;"></div>
+                                <div class="trip-info" style="flex: 1;">
+                                    <div class="trip-name" style="font-weight: 600; color: #1a3c34;">John Doe</div>
+                                    <div class="trip-email" style="font-size: 0.85rem; color: #7f8c8d;">john.doe@company.com</div>
+                                </div>
+                                <div class="trip-details" style="display: flex; gap: 15px; font-size: 0.9rem; color: #7f8c8d;">
+                                    <span class="trip-airline" style="color: #f9a826; font-weight: 600;">Qatar</span>
+                                    <div class="trip-members" style="display: flex; align-items: center; gap: 5px;">3</div>
+                                    <div class="trip-price" style="color: #1a3c34; font-weight: 600;">$54k</div>
+                                </div>
+                            </div>
+                            <div class="trip-item" style="display: flex; align-items: center; gap: 15px; padding: 12px 0;">
+                                <div class="trip-avatar" style="width: 40px; height: 40px; border-radius: 50%; background-image: url('https://randomuser.me/api/portraits/men/78.jpg'); background-size: cover; background-position: center;"></div>
+                                <div class="trip-info" style="flex: 1;">
+                                    <div class="trip-name" style="font-weight: 600; color: #1a3c34;">Martin Laines</div>
+                                    <div class="trip-email" style="font-size: 0.85rem; color: #7f8c8d;">martin.laines@company.com</div>
+                                </div>
+                                <div class="trip-details" style="display: flex; gap: 15px; font-size: 0.9rem; color: #7f8c8d;">
+                                    <span class="trip-airline" style="color: #f9a826; font-weight: 600;">Emirates</span>
+                                    <div class="trip-members" style="display: flex; align-items: center; gap: 5px;">2</div>
+                                    <div class="trip-price" style="color: #1a3c34; font-weight: 600;">$54k</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Members Panel -->
+                        <div class="section-panel">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Members</h3>
+                                <div class="panel-action">More</div>
+                            </div>
+                            <div style="text-align: center; padding: 30px 0;">
+                                <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #f9a826, #f4b400); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: #1a3c34; font-size: 2.5rem; font-weight: bold; box-shadow: 0 8px 25px rgba(249, 168, 38, 0.3);">70</div>
+                                <p style="color: #1a3c34; font-size: 1rem; font-weight: 500;">Total Members</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Charts -->
+                    <div class="charts-container">
+                        <div class="chart-panel">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Flight Share by Class</h3>
+                                <div class="panel-action"><i class="fas fa-ellipsis-h"></i></div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="flightShareChart" class="chart-canvas"></canvas>
+                                <div class="chart-label">Business Class</div>
+                            </div>
+                        </div>
+
+                        <div class="chart-panel">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Monthly Passenger Flow</h3>
+                                <div class="panel-action"><i class="fas fa-ellipsis-h"></i></div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="flightScheduleChart" class="chart-canvas"></canvas>
+                                <div class="chart-label">3,500 Passengers</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flights Content -->
+                <div id="flights-content" class="content-wrapper">
+                    <div class="stats-header">
+                        <div>
+                            <h1 class="stats-title">Flight Search & Booking</h1>
+                            <p class="stats-period">Find and book your next flight</p>
+                        </div>
+                    </div>
+
+                    <div class="flight-search">
+                        <input type="text" class="search-input" placeholder="From (City/Airport)">
+                        <input type="text" class="search-input" placeholder="To (City/Airport)">
+                        <input type="date" class="search-input">
+                        <button class="search-btn">Search Flights</button>
+                    </div>
+
+                    <div class="flights-list">
+                        <div class="flight-card">
+                            <div class="flight-image" style="background-image: url('https://images.unsplash.com/photo-1506012787146-b6b8a1e8b3d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                            <div class="flight-content">
+                                <div class="flight-header">
+                                    <div class="flight-route">New York (JFK) to London (LHR)</div>
+                                    <div class="flight-status status-on-time">On Time</div>
+                                </div>
+                                <div class="flight-details">
+                                    <div class="flight-time">08:00 AM</div>
+                                    <div class="flight-duration">7h 30m</div>
+                                    <div class="flight-time">03:30 PM</div>
+                                </div>
+                                <div class="flight-footer">
+                                    <div class="flight-price">$850</div>
+                                    <button class="book-btn">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flight-card">
+                            <div class="flight-image" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                            <div class="flight-content">
+                                <div class="flight-header">
+                                    <div class="flight-route">Los Angeles (LAX) to Tokyo (NRT)</div>
+                                    <div class="flight-status status-on-time">On Time</div>
+                                </div>
+                                <div class="flight-details">
+                                    <div class="flight-time">11:45 AM</div>
+                                    <div class="flight-duration">11h 15m</div>
+                                    <div class="flight-time">05:00 PM +1</div>
+                                </div>
+                                <div class="flight-footer">
+                                    <div class="flight-price">$1,250</div>
+                                    <button class="book-btn">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flight-card">
+                            <div class="flight-image" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                            <div class="flight-content">
+                                <div class="flight-header">
+                                    <div class="flight-route">Dubai (DXB) to Sydney (SYD)</div>
+                                    <div class="flight-status status-delayed">Delayed 30m</div>
+                                </div>
+                                <div class="flight-details">
+                                    <div class="flight-time">02:15 AM</div>
+                                    <div class="flight-duration">14h 00m</div>
+                                    <div class="flight-time">10:15 PM</div>
+                                </div>
+                                <div class="flight-footer">
+                                    <div class="flight-price">$1,680</div>
+                                    <button class="book-btn">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flight-card">
+                            <div class="flight-image" style="background-image: url('https://images.unsplash.com/photo-1436491865338-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                            <div class="flight-content">
+                                <div class="flight-header">
+                                    <div class="flight-route">Miami (MIA) to Paris (CDG)</div>
+                                    <div class="flight-status status-on-time">On Time</div>
+                                </div>
+                                <div class="flight-details">
+                                    <div class="flight-time">07:30 PM</div>
+                                    <div class="flight-duration">8h 45m</div>
+                                    <div class="flight-time">09:15 AM +1</div>
+                                </div>
+                                <div class="flight-footer">
+                                    <div class="flight-price">$980</div>
+                                    <button class="book-btn">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wallet Content -->
+                <div id="wallet-content" class="content-wrapper">
+                    <div class="stats-header">
+                        <div>
+                            <h1 class="stats-title">Wallet & Transactions</h1>
+                            <p class="stats-period">Manage your flight credits and payments</p>
+                        </div>
+                    </div>
+
+                    <div class="wallet-balance">
+                        <div class="balance-label">Available Balance</div>
+                        <div class="balance-amount">$8,450.00</div>
+                    </div>
+
+                    <div class="wallet-actions">
+                        <button class="action-btn deposit"><i class="fas fa-plus"></i> Deposit Funds</button>
+                        <button class="action-btn withdraw"><i class="fas fa-minus"></i> Withdraw</button>
+                    </div>
+
+                    <div class="transactions-list">
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-deposit"><i class="fas fa-plus"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Flight Booking Credit</h4>
+                                    <p>Refund from cancelled flight DXB-SYD</p>
+                                </div>
+                            </div>
+                            <div class="transaction-amount amount-positive">+$1,680.00</div>
+                        </div>
+
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-withdraw"><i class="fas fa-minus"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Flight Purchase</h4>
+                                    <p>New York to London - Business Class</p>
+                                </div>
+                            </div>
+                            <div class="transaction-amount amount-negative">-$850.00</div>
+                        </div>
+
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-deposit"><i class="fas fa-plus"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Referral Bonus</h4>
+                                    <p>5 friends joined with your code</p>
+                                </div>
+                            </div>
+                            <div class="transaction-amount amount-positive">+$250.00</div>
+                        </div>
+
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon icon-refund"><i class="fas fa-undo"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Service Fee Refund</h4>
+                                    <p>Overcharged baggage fee</p>
+                                </div>
+                            </div>
+                            <div class="transaction-amount amount-positive">+$45.00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reports Content -->
+                <div id="reports-content" class="content-wrapper">
+                    <div class="stats-header">
+                        <div>
+                            <h1 class="stats-title">Reports & Analytics</h1>
+                            <p class="stats-period">Comprehensive Flight Data Analysis</p>
+                        </div>
+                    </div>
+
+                    <div class="waves-bg">
+                        <div class="wave" style="left: 0; background: linear-gradient(45deg, #f9a826, #f4b400);"></div>
+                        <div class="wave" style="left: -50%; background: linear-gradient(45deg, #f4b400, #f9a826);"></div>
+                        <div class="wave" style="left: -100%; background: linear-gradient(45deg, #1a3c34, #2d5a4f); opacity: 0.3;"></div>
+                    </div>
+
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-header">
+                                <div class="report-title">Revenue Analysis</div>
+                                <div class="report-date">Q4 2025</div>
+                            </div>
+                            <div class="report-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-value">$2.1M</span>
+                                    <span class="metric-label">Total Revenue</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">+12%</span>
+                                    <span class="metric-label">Growth Rate</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">$45K</span>
+                                    <span class="metric-label">Avg Ticket</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">1,250</span>
+                                    <span class="metric-label">Bookings</span>
+                                </div>
+                            </div>
+                            <div class="report-chart">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                            <div class="report-actions">
+                                <button class="report-btn secondary">Export CSV</button>
+                                <button class="report-btn primary">View Details</button>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">
+                                <div class="report-title">Route Performance</div>
+                                <div class="report-date">Last 30 Days</div>
+                            </div>
+                            <div class="report-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-value">85%</span>
+                                    <span class="metric-label">On-Time</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">92%</span>
+                                    <span class="metric-label">Satisfaction</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">15K</span>
+                                    <span class="metric-label">Passengers</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">24</span>
+                                    <span class="metric-label">Routes</span>
+                                </div>
+                            </div>
+                            <div class="report-chart">
+                                <canvas id="routeChart"></canvas>
+                            </div>
+                            <div class="report-actions">
+                                <button class="report-btn secondary">Export PDF</button>
+                                <button class="report-btn primary">Analyze Routes</button>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">
+                                <div class="report-title">Customer Insights</div>
+                                <div class="report-date">Annual Report</div>
+                            </div>
+                            <div class="report-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-value">4.7</span>
+                                    <span class="metric-label">Avg Rating</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">78%</span>
+                                    <span class="metric-label">Repeat Rate</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">32K</span>
+                                    <span class="metric-label">Total Users</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">+18%</span>
+                                    <span class="metric-label">Retention</span>
+                                </div>
+                            </div>
+                            <div class="report-chart">
+                                <canvas id="customerChart"></canvas>
+                            </div>
+                            <div class="report-actions">
+                                <button class="report-btn secondary">View Feedback</button>
+                                <button class="report-btn primary">Customer Journey</button>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">
+                                <div class="report-title">Operational Metrics</div>
+                                <div class="report-date">Real-time</div>
+                            </div>
+                            <div class="report-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-value">98%</span>
+                                    <span class="metric-label">Uptime</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">2.1s</span>
+                                    <span class="metric-label">Load Time</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">99.9%</span>
+                                    <span class="metric-label">Security</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">24/7</span>
+                                    <span class="metric-label">Support</span>
+                                </div>
+                            </div>
+                            <div class="report-chart">
+                                <canvas id="opsChart"></canvas>
+                            </div>
+                            <div class="report-actions">
+                                <button class="report-btn secondary">System Logs</button>
+                                <button class="report-btn primary">Monitor Dashboard</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Content -->
+                <div id="statistics-content" class="content-wrapper">
+                    <div class="stats-header">
+                        <div>
+                            <h1 class="stats-title">Advanced Statistics</h1>
+                            <p class="stats-period">Deep insights into flight operations</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-overview">
+                        <div class="overview-card">
+                            <h3>98.7%</h3>
+                            <p>On-Time Performance</p>
+                        </div>
+                        <div class="overview-card">
+                            <h3>4.8</h3>
+                            <p>Average Rating</p>
+                        </div>
+                        <div class="overview-card">
+                            <h3>32K</h3>
+                            <p>Total Passengers</p>
+                        </div>
+                        <div class="overview-card">
+                            <h3>$2.1M</h3>
+                            <p>Monthly Revenue</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-grid">
+                        <div class="chart-container">
+                            <div class="chart-title">Annual Passenger Traffic</div>
+                            <canvas id="trafficChart" class="chart-canvas"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-title">Revenue by Route</div>
+                            <canvas id="revenueRouteChart" class="chart-canvas"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-title">Load Factor Analysis</div>
+                            <canvas id="loadFactorChart" class="chart-canvas"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-title">Customer Satisfaction Score</div>
+                            <canvas id="satisfactionChart" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Content -->
+                <div id="settings-content" class="content-wrapper">
+                    <div class="stats-header">
+                        <div>
+                            <h1 class="stats-title">Settings & Preferences</h1>
+                            <p class="stats-period">Customize your dashboard experience</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3><i class="fas fa-bell"></i> Notifications</h3>
+                            <div class="setting-item">
+                                <div class="setting-label">Flight Status Updates</div>
+                                <div class="toggle-switch active"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Booking Confirmations</div>
+                                <div class="toggle-switch active"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Price Alerts</div>
+                                <div class="toggle-switch"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Promotional Offers</div>
+                                <div class="toggle-switch active"></div>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3><i class="fas fa-user-shield"></i> Profile Settings</h3>
+                            <div class="setting-item">
+                                <div class="setting-label">Two-Factor Authentication</div>
+                                <div class="toggle-switch active"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Email Notifications</div>
+                                <div class="toggle-switch active"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">SMS Alerts</div>
+                                <div class="toggle-switch"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Dark Mode</div>
+                                <div class="toggle-switch"></div>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3><i class="fas fa-lock"></i> Privacy & Security</h3>
+                            <div class="setting-item">
+                                <div class="setting-label">Share Booking Details</div>
+                                <div class="toggle-switch active"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Location Services</div>
+                                <div class="toggle-switch"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Save Payment Methods</div>
+                                <div class="toggle-switch active"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Travel History</div>
+                                <div class="toggle-switch active"></div>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3><i class="fas fa-globe"></i> Regional Settings</h3>
+                            <div class="setting-item">
+                                <div class="setting-label">Currency</div>
+                                <div>USD ($)</div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Language</div>
+                                <div>English</div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Time Zone</div>
+                                <div>EST (UTC-5)</div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Date Format</div>
+                                <div>MM/DD/YYYY</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="save-btn">Save All Settings</button>
+                </div>
+            </main>
+        </div>
+    </div>
+ <script src="scripts.js" defer></script>  
+</body>
+</html>
